@@ -15,7 +15,19 @@ public class MainCaller {
         //automator.UiAutomator();
 
         /* Automating Gestures */
-        MobileGestures gesture = new MobileGestures();
-        gesture.gesturesOp();
+        //MobileGestures gesture = new MobileGestures();
+        //gesture.gesturesOp();
+
+        /* Automating Swipe Gestures */
+        //UiSwipeGestures swipe = new UiSwipeGestures();
+        //swipe.swipeGestures();
+
+        /* Automating Scrolling gestures */
+        //ScrollingGestures scroll = new ScrollingGestures();
+        //scroll.scrollingUI();
+
+        /* Automating Drag and Drop gestures */
+        DragDropGestures dragdrop = new DragDropGestures();
+        dragdrop.dragDropUI();
     }
 }

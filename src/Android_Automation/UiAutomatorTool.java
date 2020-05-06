@@ -2,13 +2,13 @@ package Android_Automation;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class UiAutomatorTool extends AppiumCapabilities {
 
-    public void UiAutomator() throws MalformedURLException {
+    public void UiAutomator() throws IOException {
 
         /* loading the desired capabilities */
         AndroidDriver<AndroidElement> driver = capabilities();

@@ -1,10 +1,10 @@
 package Android_Automation;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 
 public class MainCaller {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws IOException {
 
         /* automate using findElement methods */
         //UiWebElements webele = new UiWebElements();
@@ -19,12 +19,12 @@ public class MainCaller {
         //gesture.gesturesOp();
 
         /* Automating Swipe Gestures */
-        //UiSwipeGestures swipe = new UiSwipeGestures();
-        //swipe.swipeGestures();
+        UiSwipeGestures swipe = new UiSwipeGestures();
+        swipe.swipeGestures();
 
         /* Automating Scrolling gestures */
-        //ScrollingGestures scroll = new ScrollingGestures();
-        //scroll.scrollingUI();
+        ScrollingGestures scroll = new ScrollingGestures();
+        scroll.scrollingUI();
 
         /* Automating Drag and Drop gestures */
         DragDropGestures dragdrop = new DragDropGestures();

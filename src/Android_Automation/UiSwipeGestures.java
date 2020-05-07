@@ -12,7 +12,7 @@ import static java.time.Duration.ofSeconds;
 
 public class UiSwipeGestures extends AppiumCapabilities {
 
-    public void swipeGestures() throws IOException {
+    public void swipeGestures() throws IOException, InterruptedException {
 
         /* loading the desired capabilities */
         AndroidDriver<AndroidElement> driver = capabilities();
@@ -24,7 +24,9 @@ public class UiSwipeGestures extends AppiumCapabilities {
         driver.findElementByXPath("//*[@content-desc='9']").click();
         TouchAction action = new TouchAction(driver);
         WebElement firstEle = driver.findElementByXPath("//*[@content-desc='15']");
+        Thread.sleep(2000);
         WebElement secondEle = driver.findElementByXPath("//*[@content-desc='45']");
+        Thread.sleep(2000);
         action.longPress(longPressOptions().withElement(element(firstEle)).withDuration(ofSeconds(2))).moveTo(element(secondEle)).release().perform();
 
     }

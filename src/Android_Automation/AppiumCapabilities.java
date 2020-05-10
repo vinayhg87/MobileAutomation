@@ -21,7 +21,7 @@ public class AppiumCapabilities {
             /* This is for Emulator */
             cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android_Automation_AVD");
         }
-        else if(device.equals("real_device")) {
+        else if(device.equalsIgnoreCase("real_device")) {
             /* This is a real Android device */
             cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
         }
@@ -32,10 +32,12 @@ public class AppiumCapabilities {
 
         /* Selecting browser option */
         String appType = prop.readProperties("app.type");
-        if(appType.equals("chrome")) {
+        if(appType.equalsIgnoreCase("chrome")) {
+            String chromeDriver = prop.readProperties("chrome.driver.path");
+            cap.setCapability("chromedriverExecutable",chromeDriver);
             cap.setCapability(MobileCapabilityType.BROWSER_NAME,"Chrome");
         }
-        else if (appType.equals("apk")){
+        else if (appType.equalsIgnoreCase("apk")) {
             /* Loading APK */
             String apkPath = prop.readProperties("apk.path");
             cap.setCapability(MobileCapabilityType.APP, apkPath);

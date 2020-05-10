@@ -19,5 +19,6 @@ public class UiWebElements extends AppiumCapabilities {
         driver.findElementByXPath("(//android.widget.RelativeLayout)[2]").click();
         driver.findElementById("android:id/edit").sendKeys("demoTest");
         driver.findElementsByClassName("android.widget.Button").get(1).click();
+        driver.closeApp();
     }
 }

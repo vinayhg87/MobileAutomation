@@ -2,7 +2,7 @@ package Android_Automation;
 
 import java.io.IOException;
 
-public class MainCaller {
+public class AndroidCaller {
 
     public static void main(String[] args) throws IOException {
 
@@ -73,12 +73,12 @@ public class MainCaller {
         }
         /* Executing tests on mobile browser like chrome  */
         else if (prop.readProperties("app.type").equalsIgnoreCase("chrome")) {
-
             System.out.println("Executing tests on mobile browser.");
 
+            BrowserAutomation browser = new BrowserAutomation();
+            browser.chromeBrowser();
         }
-        else
-        {
+        else {
             System.out.println("Invalid option. Check the value of app.type in property file androidDevice.properties.");
             System.out.println("app.type can accept 2 values i.e 'chrome' or 'apk'");
             System.exit(1);

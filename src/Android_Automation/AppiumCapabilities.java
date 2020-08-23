@@ -12,9 +12,9 @@ public class AppiumCapabilities {
     public AndroidDriver<AndroidElement> capabilities() throws IOException {
 
         PropertiesReader prop = new PropertiesReader();
+        AndroidDriver<AndroidElement> driver = null;
 
         /* Appium capabilities code for android - Emulator name is "Android_Automation_AVD" */
-        AndroidDriver<AndroidElement> driver;
         DesiredCapabilities cap = new DesiredCapabilities();
         String device = prop.readProperties("device.type");
         if(device.equals("emulator_device")) {
@@ -26,7 +26,7 @@ public class AppiumCapabilities {
             cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
         }
         else {
-            System.out.println("Invalid value");
+            System.out.println("Invalid value. Program Aborted.");
             System.exit(1);
         }
 
@@ -43,11 +43,23 @@ public class AppiumCapabilities {
             cap.setCapability(MobileCapabilityType.APP, apkPath);
         }
         else {
-            System.out.println("Invalid Value");
+            System.out.println("Invalid Value. Program Aborted.");
             System.exit(1);
         }
 
-        driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"),cap);
+        try {
+            driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("Driver initialized to NULL value. Program Aborted.");
+            System.exit(1);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Exception occurred"+ e);
+            System.exit(1);
+        }
 
         return driver;
     }

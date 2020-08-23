@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class AndroidCaller {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         PropertiesReader prop = new PropertiesReader();
         /* Executing tests on mobile application  */
@@ -63,8 +63,8 @@ public class AndroidCaller {
 
             /* Automating Drag and Drop gestures */
             try {
-                DragDropGestures dragdrop = new DragDropGestures();
-                dragdrop.dragDropUI();
+                DragDropGestures dragDrop = new DragDropGestures();
+                dragDrop.dragDropUI();
                 System.out.println("Test case Passed");
             } catch (Exception e) {
                 System.out.println(e);
